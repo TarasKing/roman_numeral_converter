@@ -1,12 +1,14 @@
 const inputField = document.getElementById("number");
-const outputField = document.getElementById("output");
+
 const convertButton = document.getElementById("convert-btn");
+const container = document.getElementById("main-container");
 
 function convertHandle() {
+  createResult();
+  const outputField = document.getElementById("output");
   // clear the output
   outputField.innerText = "";
 
-  // checking if the input field is empty
   if (inputField.value === "") {
     outputField.innerText = "Please enter a valid number";
     return;
@@ -20,6 +22,25 @@ function convertHandle() {
     return;
   }
   outputField.innerText = integerToRoman(inputField.value).toString();
+}
+
+function createResult() {
+  //   console.log(container);
+  if (!document.getElementById("output-fieldset")) {
+    const fieldset = document.createElement("fieldset");
+    fieldset.id = "output-fieldset";
+    const legend = document.createElement("legend");
+    legend.innerText = "Result";
+    const output = document.createElement("div");
+    output.id = "output";
+
+    fieldset.appendChild(legend);
+    fieldset.appendChild(output);
+
+    container.appendChild(fieldset);
+    // if I wanted to insert as string
+    // insertAdjacentHTML("beforeend", result);
+  }
 }
 
 function integerToRoman(num) {

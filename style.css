@@ -8,9 +8,7 @@ body {
 fieldset {
   display: flex;
   flex-direction: column;
-
   width: 300px;
-  margin-top: 20%;
 }
 .container {
   display: flex;
@@ -31,4 +29,7 @@ fieldset {
   text-align: center;
   font-weight: 600;
   color: bisque;
+}
+#main-container {
+  margin-top: 20%;
 }
